@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  ebook-mindmap:
+    build: .
+    container_name: ebook-mindmap
+    restart: unless-stopped
+    ports:
+      - "5173:3000"  # 暴露到5173端口
+    volumes:
+      - ./data:/app/data  # 持久化存储
+    environment:
+      - NODE_ENV=production
